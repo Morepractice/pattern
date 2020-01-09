@@ -14,6 +14,6 @@ class FluentInterfaceTest extends TestCase
                 ->where('id = ?')
                 ->where('name = ?');
         
-                $this->assertEquals('SELECT foo,bar FROM user AS a WHERE id = ? AND name = ?',(strval($sql)));
+        $this->assertEquals('SELECT foo,bar FROM user AS a WHERE id = ? AND name = ?',(strval($sql)));
     }
 }
