@@ -16,16 +16,16 @@ class Iterator extends TestCase
         $bookList->addBook($book);
         $bookList->addBook($book2);
 
-        // $books = [];
-        // foreach($bookList as $book){
-        //     $books[] = $book->getTitleAndAuthor();
-        // }
+        $books = [];
+        foreach($bookList as $book){
+            $books[] = $book->getTitleAndAuthor();
+        }
 
         $this->assertCount(2, $bookList);
-        // $this->assertEquals([
-        //     'Clean Code by Robert C. Martin',
-        //     'Professional Php Design Patterns by Aaron Saray'
-        // ],$books);
+        $this->assertEquals([
+            'Clean Code by Robert C. Martin',
+            'Professional Php Design Patterns by Aaron Saray'
+        ],$books);
         return $bookList;
     }
     
@@ -37,7 +37,8 @@ class Iterator extends TestCase
     {
         $book = new Book('Clean Code', 'Robert C. Martin');
         $bookList->removeBook($book);
-
+        
+        $bookList->rewind();
         $books = [];
         While($bookList->valid())
         {

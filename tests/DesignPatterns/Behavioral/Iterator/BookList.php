@@ -53,7 +53,7 @@ class BookList implements \Countable, \Iterator
         /**
          * 若此对象已被删除则往后移动一个单位
          */
-        if(!$this->valid() && $this->currentKey == $this->key){
+        if(!$this->valid() && $this->currentKey < $this->key){
             $this->next();
         }
     }
@@ -61,6 +61,10 @@ class BookList implements \Countable, \Iterator
     public function rewind()
     {
         $this->currentKey = 0;
+
+        if(!$this->valid()){
+            $this->next();
+        }
     }
 
     public function key(): int
