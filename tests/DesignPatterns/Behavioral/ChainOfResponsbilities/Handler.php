@@ -9,9 +9,9 @@ abstract class Handler
      */
     private $successor;
 
-    public function setHandler(Handler $handler)
+    public function __construct(Handler $successor)
     {
-        $this->successor = $handler;
+        $this->successor = $successor;
     }
 
     /**

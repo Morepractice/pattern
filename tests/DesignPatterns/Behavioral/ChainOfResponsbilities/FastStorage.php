@@ -10,7 +10,7 @@ class HttpInMemoryCacheHandler extends Handler
 
     public function __construct(array $data,Handler $handler)
     {
-        parent::setHandler($handler);
+        parent::__construct($handler);
         $this->data = $data;
     }
 
